@@ -1,5 +1,6 @@
   
 from typing import List
+//Sort everytime
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         li = []
@@ -23,3 +24,30 @@ a = Solution()
 li = ["eat", "tea", "tan", "ate", "nat", "bat"]
 #print(li)
 print(a.groupAnagrams(li))
+
+
+//hash key method
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        li = []
+        key = []
+        for i in range(len(strs)):
+            flag = 0
+            #print("Start")
+            if len(li) == 0:
+                li.append([strs[i]])
+                a = (sorted(strs[i]))
+                key.append(a)
+                continue
+            temp = sorted(strs[i])
+            if temp in key:
+                index = key.index(temp)
+                li[index].append(strs[i])
+                flag = 1
+            #print(li)
+            #print(key)
+            if flag == 0:    
+              li.append([strs[i]])
+              key.append(sorted(strs[i]))
+                
+        return li
