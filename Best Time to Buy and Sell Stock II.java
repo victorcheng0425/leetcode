@@ -11,3 +11,5 @@ class Solution {
         return profit;
     }
 }
+
+//if current element is smaller than next element, sell it!
