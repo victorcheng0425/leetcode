@@ -20,3 +20,25 @@ class Solution:
             return 0
         
         return 1 + max(self.gothrough(root.left), self.gothrough(root.right))
+    
+#####smart way#############
+    class Solution:
+    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+        
+        self.ans = 0
+        self.helper(root)
+        return self.ans
+    
+    def helper(self, node):
+        
+        if not node:
+            return 0
+        left = self.helper(node.left)
+        right = self.helper(node.right)
+        self.ans = max(self.ans, left+right)
+        
+        return max(left, right) + 1
+    
+    
+    
+    
