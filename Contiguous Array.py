@@ -1,3 +1,4 @@
+Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
 class Solution:
     def findMaxLength(self, nums: List[int]) -> int:
         maximum = 0
