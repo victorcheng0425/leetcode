@@ -1,4 +1,5 @@
 class Solution:
+    #loop through array, search for '1'
     def numIslands(self, grid: List[List[str]]) -> int:
         count = 0
         for i , e in enumerate (grid):
@@ -10,7 +11,7 @@ class Solution:
                     self.DFS(grid, i, j)
                     #print(count)
         return count
-                    
+    #DFS turn islands '1' to 2                
     def DFS(self, grid: List[List[str]], i, j):
         grid[i][j] = '2'
         left, right, top, down = 1, 1, 1, 1
