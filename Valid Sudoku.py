@@ -1,3 +1,4 @@
+#stupid
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         i = 0
@@ -63,4 +64,20 @@ class Solution:
             j = 0
             x += 1
         return True
-                
+#smart
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        rows=[set() for _ in range(9)]
+        cols=[set() for _ in range(9)]
+        boards=[[set() for _ in range(3)] for _ in range(3)]
+        for row,row_ in enumerate(board):
+            for col,num in enumerate(row_):
+                if num!='.':
+                    in_1=row//3
+                    in_2=col//3
+                    if num in (rows[row] |cols[col] |boards[in_1][in_2]):
+                        return False
+                    rows[row].add(num)
+                    cols[col].add(num)
+                    boards[in_1][in_2].add(num)
+        return  True
