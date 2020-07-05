@@ -18,12 +18,10 @@ public:
                 delay = delay->next;
             }else{
                 head = head->next;
+                return head;
             }
         }
-        if(curr == delay){ //base case, one element
-            head = NULL;
-            return head;
-        }
+
         while(delay->next != NULL){
             curr = curr->next;
             delay = delay->next;
